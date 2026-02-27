@@ -24,14 +24,16 @@ origins = [
     "http://localhost:3000",
     "http://127.0.0.1:5174",
     "http://127.0.0.1:5173",
-    # Add your deployed frontend URL here:
-    # "https://your-portfolio.vercel.app",
+    "https://nishant-portfolio-j9dwng1y0-nishant-deshmukhs-projects.vercel.app",
+    "https://nishant2116.github.io",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
-    allow_credentials=True,
+    # When allow_credentials=True, you cannot use allow_origins=["*"]
+    # So we either explicitly list origins, or for a public API allow all without credentials.
+    allow_origins=["*"], 
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
